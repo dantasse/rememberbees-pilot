@@ -29,6 +29,10 @@ class Answers(db.Model):
     q4 = db.StringProperty()
     q5 = db.StringProperty()
     q6 = db.StringProperty()
+    q7 = db.StringProperty()
+    q8 = db.StringProperty()
+    q9 = db.StringProperty()
+    q10 = db.StringProperty()
     name = db.StringProperty()
     user_number = db.IntegerProperty()
 
@@ -53,6 +57,10 @@ class AnswersHandler(webapp2.RequestHandler):
         answers.q4 = self.request.get('q4')
         answers.q5 = self.request.get('q5')
         answers.q6 = self.request.get('q6')
+        answers.q7 = self.request.get('q7')
+        answers.q8 = self.request.get('q8')
+        answers.q9 = self.request.get('q9')
+        answers.q10 = self.request.get('q10')
         answers.name = self.request.get('name')
         answers.user_number = number
         answers.put()

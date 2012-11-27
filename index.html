@@ -24,8 +24,7 @@
         var video = $("#talk");
         video.show();
         video.on('contextmenu', function() {
-          // return false;
-          // TODO uncomment
+          return false;
         });
         video[0].play();
         video.on('ended', function() {
@@ -66,7 +65,7 @@
         <input type='text' name='q2' /> <br />
         To a satellite, a pixel is about the size of what?
         <input type='text' name='q3' /> <br />
-        What can you wear to defeat eye sensors?
+        What can you wear to defeat iris matching?
         <input type='text' name='q4' /> <br />
         Can GPS on your phone be activated without your consent?
         <input type='text' name='q5' /> <br />
@@ -74,7 +73,13 @@
         <input type='text' name='q6' /> <br />
       </div>
       <div id="questions_after" style='display:none'>
+        Please answer the following questions. If you don't know the answers,
+        just skip them. <br />
+        What is the concept, created by Cory Doctorow, for the person who should "annoy" Big Brother? <input type='text' name='q7'/><br />
+        Does the speaker advocate breaking the law?<input type='text' name='q8'/><br />
         What was the speaker's name? <input type='text' name='name' /><br />
+        Can satellites read car license plates from the air?<input type='text' name='q9'/><br />
+        What is one good thing that biometrics allow us to do?<input type='text' name='q10' /><br />
         <input type="submit" />
       </div>
     </form>
