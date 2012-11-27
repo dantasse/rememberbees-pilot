@@ -1,0 +1,30 @@
+application: rememberbees-pilot
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /videos/(.*\.webm)
+  mime_type: video/webm
+  static_files: videos/\1
+  upload: videos/(.*\.webm)
+
+- url: /videos/(.*\.mp4)
+  mime_type: video/mp4
+  static_files: videos/\1
+  upload: videos/(.*\.mp4)
+
+- url: .*
+  script: main.app
+
+libraries:
+- name: webapp2
+  version: "2.5.1"
+
+- name: jinja2
+  version: latest

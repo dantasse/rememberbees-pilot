@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      video {
+        border: 1px solid black;
+        width: 640px;
+      }
+      
+      .video-container {
+        display: inline-block;
+        text-align: center;
+      }
+      
+      p, div {
+        font: 14px Arial;
+        width:680px;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">  </script>
+    <script>
+      function startVideo() {
+        $("#instructions").hide();
+        var video = $("#talk");
+        video.show();
+        video.on('contextmenu', function() {
+          // return false;
+          // TODO uncomment
+        });
+        video[0].play();
+        video.on('ended', function() {
+          endVideo();
+        });
+        $('#questions_during').show();
+      };
+      function endVideo() {
+        $('#talk').hide();
+        $('#questions_during').hide();
+        $('#questions_after').show();
+      }
+    </script>
+  </head>
+  <body>
+    <div id="instructions">
+      You are about to watch a video of a talk. You will not be able to pause
+      or rewind the video once it starts. You will be given some questions to
+      answer during the video. You will also be asked some questions after the
+      video is over. Please pay attention to the video and also try to remember
+      the speaker's name, which you will see at the beginning of the talk.
+      <br />
+      <button onclick="startVideo();">Start!</button>
+    </div>
+    
+    <div class="video-container">
+      <video id="talk" style="display:none">
+        <source src="videos/movie.webm" type='video/webm; codecs="vp8, vorbis"' />
+        <source src="videos/movie.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+      </video>
+    </div>
+
+    <form action="answers" method="post">
+      <div id="questions_during" style='display:none'>
+        What did the clerk at the pet store ask the speaker if his name was?
+        <input type='text' name='q1' /> <br />
+        What is the name of the prison concept that the speaker talks about?
+        <input type='text' name='q2' /> <br />
+        To a satellite, a pixel is about the size of what?
+        <input type='text' name='q3' /> <br />
+        What can you wear to defeat eye sensors?
+        <input type='text' name='q4' /> <br />
+        Can GPS on your phone be activated without your consent?
+        <input type='text' name='q5' /> <br />
+        What are the two real answers to the surveillance problem?
+        <input type='text' name='q6' /> <br />
+      </div>
+      <div id="questions_after" style='display:none'>
+        What was the speaker's name? <input type='text' name='name' /><br />
+        <input type="submit" />
+      </div>
+    </form>
+  </body>
+</html>
